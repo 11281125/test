@@ -24,7 +24,7 @@ plt.show()
 # 缺失值的处理
 # 1、Embarked这一属性（共有三个上船地点），缺失俩值，可以用众数赋值
 train_data.Embarked[train_data.Embarked.isnull()] = train_data.Embarked.dropna().mode().values
-# 2、对于标称属性，可以赋一个代表缺失的值，比如‘U0’。船舱号Cabin这一属性，缺失可能代表并没有船舱。
+# 2、对于标称属性，可以赋一个代表缺失的值，比如‘U’。船舱号Cabin这一属性，缺失可能代表并没有船舱。
 train_data['Cabin'] = train_data.Cabin.fillna('U')
 # 3、Age在该数据集里是一个相当重要的特征，使用回归 随机森林等模型来预测缺失属性的值
 from sklearn.ensemble import RandomForestRegressor
